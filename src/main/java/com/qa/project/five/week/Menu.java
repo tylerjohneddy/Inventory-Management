@@ -5,21 +5,24 @@ import java.util.Scanner;
 
 
 public class Menu {
-
+Scanner input = new Scanner(System.in);
 public Menu() {
 	String option = "";
+	
 
 	do
 	{
 		System.out.println("Welcome to the inventroy managagment system");
 		System.out.println("Main Menu\n");
-		option = System.console().readLine();
+		//Database IMS = new Database();
+		option = input.nextLine();
+		//option = System.console().readLine();
 		topMenu(option);
 	}while(!"exit".equals(option));
 
 }
 
-public static void topMenu(String a) {
+public void topMenu(String a) {
 	switch (a) {
 	case "exit":
 		System.out.println("Good Bye Have A Nice Day!\n");
@@ -51,14 +54,15 @@ public static void topMenu(String a) {
 	}
 }
 
-public static void subMenuStarter(String a) {
-	String SubOption = "";
+public void subMenuStarter(String a) {
+	String subOption = "";
 	System.out.println("You've entered the " + a + " menu\nPlease select your next option");
 	do {
-		SubOption = System.console().readLine();
+		//SubOption = System.console().readLine();
+		subOption = input.nextLine();
 
-		SubMenu(SubOption, a);
-	} while (!"exit".equals(SubOption));
+		SubMenu(subOption, a);
+	} while (!"exit".equals(subOption));
 }
 
 public static void subMenuOption(String a, String b) {
@@ -67,7 +71,7 @@ public static void subMenuOption(String a, String b) {
 	System.out.println(a + ": " + userInput);
 }
 
-public static void SubMenu(String a, String b) {
+public void SubMenu(String a, String b) {
 	switch (a) {
 	case "exit":
 		break;

@@ -24,7 +24,8 @@ public class Database {
 	Connection conn = null;
 
 	/**
-	 * @return Once run this provides connection object to the database to be used with all activities.
+	 * @return Once run this provides connection object to the database to be used
+	 *         with all activities.
 	 * @throws SQLException
 	 */
 	public Connection connect() throws SQLException {
@@ -69,6 +70,32 @@ public class Database {
 			} // end finally try
 		} // end try
 
+	}
+	public void update(Connection conn, String sql) {
+		
+	}
+	public void delete(Connection conn, String sql) {
+		
+	}
+	public void select(Connection conn, String sql) {
+		
+	}
+
+	public String resultSet_toString(ResultSet rs) {
+		String Result = "";
+		try {
+			
+			while (rs.next()) {
+				String row = "";
+				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+					row += rs.getMetaData().getColumnLabel(i) + " , " + rs.getString(i) + " ";
+				}
+				Result += row + "\n";
+			}
+		} catch (SQLException e) {
+			Result = "null";
+		}
+		return Result;
 	}
 
 }

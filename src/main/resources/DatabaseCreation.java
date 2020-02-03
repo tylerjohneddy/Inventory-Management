@@ -3,7 +3,7 @@ public class DatabaseCreation {
 	public void tableSQL() {
 		String inventoryManagementDatabase = "create database if not exists inventory_management;";
 		
-		String useDatabase = "use inventory_management;";
+		//String useDatabase = "use inventory_management;";
 
 		String customersTable = "create table if not exists customers(id int primary key auto_increment,forename varchar(50) not null,surname varchar(50) not null);";
 
@@ -15,7 +15,6 @@ public class DatabaseCreation {
 
 		String usersTable = "create table if not exists users(id int primary key auto_increment,name varchar(40) not null unique,password varchar(20) not null);";
 
-		String showTables = "describe item_order;";
 
 	}
 }

@@ -1,3 +1,5 @@
+
+
 package com.qa.project.five.week;
 
 import java.sql.ResultSet;
@@ -5,19 +7,30 @@ import java.sql.Statement;
 
 
 
+/**
+ * @author Tyler Eddy
+ *
+ */
 public class SQLQueries extends Database{
 
 		ResultSet rs = null;
 		Statement stmt = null;
 		String sql;
 
+		/**
+		 * @param name
+		 * @return
+		 */
 		public boolean addCustomer(String name) {
 			// -- Add a customer to the system
-			sql = "INSERT INTO customers values(null,NAME);";
+			sql = String.format("INSERT INTO customers values(null,%s);",name);
 			return false;
 
 		}
 
+		/**
+		 * @return
+		 */
 		public ResultSet viewAllCustomers() {
 
 //		-- View all customers in the system
@@ -25,12 +38,21 @@ public class SQLQueries extends Database{
 			return rs;
 		}
 
+		/**
+		 * @param currentName
+		 * @param newName
+		 * @return
+		 */
 		public boolean updateCustomer(String currentName, String newName) {
 			// -- Update a customer in the system
 			sql = String.format("UPDATE customer SET name = %S WHERE name = %S;", currentName, newName);
 			return false;
 		}
 
+		/**
+		 * @param id
+		 * @return
+		 */
 		public boolean deleteCustomer(int id) {
 
 //		-- Delete a customer in the system.
@@ -38,6 +60,10 @@ public class SQLQueries extends Database{
 			return false;
 		}
 
+		/**
+		 * @param name
+		 * @return
+		 */
 		public boolean deleteCustomer(String name) {
 
 //			-- Delete a customer in the system.
@@ -45,12 +71,21 @@ public class SQLQueries extends Database{
 			return false;
 		}
 
+		/**
+		 * @param name
+		 * @param value
+		 * @param quantity
+		 * @return
+		 */
 		public boolean addItem(String name, float value, int quantity) {
 //		-- Add an item to the system
-			sql = String.format("INSERT INTO items VALUES(null,name,value,quantity);");
+			sql = String.format("INSERT INTO items VALUES(null,%s,%s,%s);",name,value,quantity);
 			return false;
 		}
 
+		/**
+		 * @return
+		 */
 		public ResultSet viewAllItems() {
 
 //		-- View all items in the system
@@ -58,20 +93,49 @@ public class SQLQueries extends Database{
 			return rs;
 		}
 
-		public boolean updateItem() {
+		/**
+		 * @param id
+		 * Unique ID for the item to be updated.
+		 * @param name
+		 * The new name of the item.
+		 * @param value
+		 * The new value of the item.
+		 * @param quantity
+		 * The new quantity of the item.
+		 * @return
+		 * Returns TRUE if the update was successful.
+		 */
+		public boolean updateItem(int id, String name, float value, int quantity) {
 
 //		-- Update an item in the system
-			sql = "UPDATE items(name,value,quantity) set VALUES(name,value,quantity) WHERE id=ID;";
+			sql = String.format("UPDATE items(name,value,quantity) set VALUES(%s,%s,%s) WHERE id=%s;",id,name,value,quantity);
 			return false;
 		}
 
-		public boolean deleteItem() {
+		/**
+		 * @param name
+		 * @return
+		 */
+		public boolean deleteItem(String name) {
 
 //		-- Delete an item in the system
-			sql = "DELETE FROM items WHERE name = NAME OR  ID = ID;";
+			sql = String.format("DELETE FROM items WHERE name = %s;",name);
 			return false;
 		}
+		/**
+		 * @param id
+		 * @return
+		 */
+		public boolean deleteItem(int id) {
 
+//			-- Delete an item in the system
+				sql = String.format("DELETE FROM items WHERE ID = %s;",id);
+				return false;
+			}
+
+		/**
+		 * @return
+		 */
 		public boolean addItemToOrder() {
 
 //		-- Add an item and quantity to an order.
@@ -79,18 +143,29 @@ public class SQLQueries extends Database{
 			return false;
 		}
 
-		public float orderCost() {
+		/**
+		 * @param id
+		 * Requires Order ID to be passes to calculate a total
+		 * @return
+		 */
+		public float orderCost(int id) {
 
 //		-- Calculate a cost for an order.
 
-			sql = "SELECT SUM(item_quantity * sold_cost) where order_id = ID;";
+			sql = String.format("SELECT SUM(item_quantity * sold_cost) where order_id = %s;",id);
 			return 0;
 		}
 
-		public boolean updateItemInOrder() {
+		/**
+		 * 
+		 * @param quantity
+		 * 
+		 * @return
+		 */
+		public boolean updateItemInOrder(int quantity) {
 
 //		-- Update the quantity of an item in an order
-			sql = "UPDATE item_order SET item_quantity  = NEW_ITEM_QUANTITY; ";
+			sql = String.format("UPDATE item_order SET item_quantity  = %s;",quantity);
 			return false;
 		}
 
@@ -108,6 +183,9 @@ public class SQLQueries extends Database{
 			return false;
 		}
 
+		/**
+		 * @return
+		 */
 		public ResultSet viewAllOrders() {
 
 //		-- View all orders in the system.

@@ -22,6 +22,7 @@ public class Database {
 
 	Statement stmt = null;
 	Connection conn = null;
+	ResultSet rs = null;
 
 	/**
 	 * @return Once run this provides connection object to the database to be used
@@ -77,8 +78,33 @@ public class Database {
 	public void delete(Connection conn, String sql) {
 		
 	}
-	public void select(Connection conn, String sql) {
+	public ResultSet select(Connection conn, String sql) throws SQLException {
+
+		try {
+
 		
+			ResultSet rs = conn.createStatement().executeQuery(sql);
+			return rs;
+	
+
+		} catch (SQLException se) {
+			// Handle errors for JDBC
+			se.printStackTrace();
+		} finally {
+			// finally block used to close resources
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (SQLException se2) {
+			} // nothing we can do
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (SQLException se) {
+				se.printStackTrace();
+			} // end finally try
+		} // end try
+		return rs;
 	}
 
 	public String resultSet_toString(ResultSet rs) {

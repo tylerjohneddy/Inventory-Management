@@ -190,6 +190,7 @@ public class SQLQueries extends Database {
 //		-- Calculate a cost for an order.
 
 		sql = String.format("SELECT SUM(item_quantity * sold_cost) where order_id = %s;", id);
+		
 		return 0;
 	}
 

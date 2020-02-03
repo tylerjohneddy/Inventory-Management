@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 
 public class Menu {
-Scanner input = new Scanner(System.in);
+Scanner consoleLine = new Scanner(System.in);
 public Menu() {
 	String option = "";
 	
@@ -15,7 +15,7 @@ public Menu() {
 		System.out.println("Welcome to the inventroy managagment system");
 		System.out.println("Main Menu\n");
 		//Database IMS = new Database();
-		option = input.nextLine();
+		option = consoleLine.nextLine();
 		//option = System.console().readLine();
 		topMenu(option);
 	}while(!"exit".equals(option));
@@ -54,20 +54,20 @@ public void topMenu(String a) {
 	}
 }
 
-public void subMenuStarter(String a) {
+public void subMenuStarter(String topMenuOption) {
 	String subOption = "";
-	System.out.println("You've entered the " + a + " menu\nPlease select your next option");
+	System.out.printf("You've entered the %s menu\nPlease select your next option\n",topMenuOption);
 	do {
 		//SubOption = System.console().readLine();
-		subOption = input.nextLine();
+		subOption = consoleLine.nextLine();
 
-		SubMenu(subOption, a);
+		SubMenu(subOption, topMenuOption);
 	} while (!"exit".equals(subOption));
 }
 
-public static void subMenuOption(String a, String b) {
+public void subMenuOption(String a, String b) {
 	System.out.println("Please enter the " + b + " name:\n");
-	String userInput = System.console().readLine();
+	String userInput = consoleLine.nextLine();
 	System.out.println(a + ": " + userInput);
 }
 

@@ -65,8 +65,8 @@ public void subMenuStarter(String topMenuOption) {
 	} while (!"exit".equals(subOption));
 }
 
-public void subMenuOption(String a, String b) {
-	System.out.println("Please enter the " + b + " name:\n");
+public void subMenuOption(String a, String topMenuOption) {
+	System.out.printf("Please enter the %s name:\n",topMenuOption);
 	String userInput = consoleLine.nextLine();
 	System.out.println(a + ": " + userInput);
 }

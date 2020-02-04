@@ -8,7 +8,7 @@ import java.sql.Statement;
  * @author Tyler Eddy
  *
  */
-public class SQLQueries extends Database {
+public class SQLQueries extends Mysql {
 
 	ResultSet rs = null;
 	Statement stmt = null;

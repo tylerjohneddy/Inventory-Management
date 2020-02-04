@@ -9,16 +9,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.mysql.cj.MysqlConnection;
+
 public class MysqlCustomerDao implements Dao<Customer> {
 
 	private Connection connection;
 
 	public MysqlCustomerDao() throws SQLException {
 
-		this.connection = DriverManager.getConnection("jdbc:mysql://35.230.149.143:3306/ims", "root", "Everythingstopsforbakeoff");
+		this.connection = DriverManager.getConnection("jdbc:mysql://35.230.149.143:3306/ims", "root",
+				"Everythingstopsforbakeoff");
 	}
 
-	public List<Customer> getAll() {
+	public void create(Customer customer) {
+		// TODO Auto-generated method stub
+	}
+
+	public ArrayList<Customer> readAll() {
 		ArrayList<Customer> customers = new ArrayList<Customer>();
 		try {
 			Statement statement = connection.createStatement();
@@ -31,17 +38,9 @@ public class MysqlCustomerDao implements Dao<Customer> {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		} 
+		}
 		return customers;
 	}
-
-	public void create(Customer customer) {
-		// TODO Auto-generated method stub
-	}
-
-	public ArrayList<Customer> readAll() {
-		// TODO Auto-generated method stub
-		return null;	}
 
 	public void update(Customer customer) {
 		// TODO Auto-generated method stub

@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  * @author Tyler Eddy
  *
  */
-public class Database {
+public class Mysql {
 	private static final String DB_URL = "jdbc:mysql://35.230.149.143/inventory_management";
 
 	// Database credentials

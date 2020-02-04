@@ -35,6 +35,9 @@ public class Database {
 		return conn;
 
 	}
+	public void checkDatabase() {
+		
+	}
 
 	/**
 	 * @param conn

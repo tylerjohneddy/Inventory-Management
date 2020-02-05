@@ -11,15 +11,9 @@ import java.util.Scanner;
 
 import com.mysql.cj.MysqlConnection;
 
-public class MysqlCustomerDao implements Dao<Customer> {
+public class MysqlCustomerDao implements Dao<Customer>{
 
-	private Connection connection;
-
-	public MysqlCustomerDao() throws SQLException {
-
-		this.connection = DriverManager.getConnection("jdbc:mysql://35.230.149.143:3306/ims", "root",
-				"Everythingstopsforbakeoff");
-	}
+	
 
 	public void create(Customer customer) {
 		// TODO Auto-generated method stub
@@ -27,29 +21,43 @@ public class MysqlCustomerDao implements Dao<Customer> {
 
 	public ArrayList<Customer> readAll() {
 		ArrayList<Customer> customers = new ArrayList<Customer>();
+		
+		String sql = "SELECT * FROM customers;";
+		
+		ResultSet resultSet = new Mysql().read(sql);
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("select * from customer");
 			while (resultSet.next()) {
-				Long id = resultSet.getLong("id");
+				int id = resultSet.getInt("id");
 				String firstName = resultSet.getString("firstName");
-				String surname = resultSet.getString("surname");
-				customers.add(new Customer(id, firstName, surname));
+				customers.add(new Customer(id, firstName));
+			
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return customers;
 	}
 
-	public void update(Customer customer) {
+
+	public void update(Customer customer, String newName) {
 		// TODO Auto-generated method stub
+		String sql = String.format("UPDATE customer SET name = %S WHERE name = %S;", customer.getFirstName(), newName);
+		new Mysql().update(sql);
 
 	}
 
 	public void delete(int id) {
 		// TODO Auto-generated method stub
+		String sql = String.format("DELETE customer WHERE ID = %s;", id);
+		new Mysql().delete(sql);
 
+	}
+
+	@Override
+	public void update(Customer t) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

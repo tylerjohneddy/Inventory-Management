@@ -4,12 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.lang.AutoCloseable;
-
-import javax.management.Query;
-
 import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import com.qa.ims.Runner;
+
 
 /**
  * @author Tyler Eddy
@@ -33,8 +32,8 @@ public class Mysql {
 	 * @throws SQLException
 	 */
 	public void connect() throws SQLException {
-
-		System.out.println("Connecting to database...");
+		
+		Runner.LOGGER.info("Connecting to database...");
 		conn = DriverManager.getConnection(DB_URL, USER, PASS);
 		stmt = conn.createStatement();
 
@@ -62,7 +61,7 @@ public class Mysql {
 	 * @return
 	 */
 	public ResultSet read(String sql) {
-		
+
 		try {
 			rs = stmt.executeQuery(sql);
 		} catch (SQLException e) {
@@ -75,7 +74,7 @@ public class Mysql {
 	 * @param sql
 	 */
 	public void update(String sql) {
-		
+
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -88,7 +87,7 @@ public class Mysql {
 	 * @param sql
 	 */
 	public void delete(String sql) {
-		
+
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
@@ -110,7 +109,7 @@ public class Mysql {
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
 					row += rs.getMetaData().getColumnLabel(i) + " , " + rs.getString(i) + " ";
 				}
-				results.add(row) ;
+				results.add(row);
 			}
 		} catch (SQLException e) {
 			results.add("\nerror\n");

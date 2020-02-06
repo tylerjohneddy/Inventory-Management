@@ -1,20 +1,20 @@
-package com.qa.project.five.week;
+package com.qa.project.five.week.database;
 
 import java.util.ArrayList;
+
+import com.qa.project.five.week.tables.Item;
 
 public class MysqlItemDao implements Dao<Item> {
 
 	@Override
 	public void create(Item item) {
-		// TODO Auto-generated method stub
 		String sql = String.format("INSERT INTO items VALUES(null,%s,%s,%s);", item.getName(), item.getValue(),item.getInStock());
 		new Mysql().create(sql);
 		
 	}
 
 	@Override
-	public ArrayList<Item> readAll() {
-		// TODO Auto-generated method stub
+	public ArrayList<String> readAll() {
 		String sql = "SELECT * FROM items;";
 		new Mysql().read(sql);
 		
@@ -22,15 +22,19 @@ public class MysqlItemDao implements Dao<Item> {
 	}
 
 	@Override
-	public void update(Item t) {
-		// TODO Auto-generated method stub
+	public void update(Item item) {
+		String sql = String.format("UPDATE items(name,value,quantity) set VALUES(%s,%s,%s) WHERE id=%s;", item.getId(), item.getName(), item.getValue(),
+				item.getInStock());
+		new Mysql().update(sql);
+		
 
 	}
 
 	@Override
 	public void delete(int id) {
-		// TODO Auto-generated method stub
 		String sql = String.format("DELETE FROM items WHERE ID = %s;", id);
+		new Mysql().delete(sql);
+		
 
 	}
 

@@ -1,8 +1,10 @@
 
-package com.qa.project.five.week;
+package com.qa.ims;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+
+import com.qa.project.five.week.database.Mysql;
 
 /**
  * @author Tyler Eddy

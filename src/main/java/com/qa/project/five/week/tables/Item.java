@@ -1,10 +1,11 @@
-package com.qa.project.five.week;
+package com.qa.project.five.week.tables;
 
 public class Item {
 	private int id;
 	private String name;
 	private double value;
 	private int inStock;
+	
 
 	public int getId() {
 		return id;

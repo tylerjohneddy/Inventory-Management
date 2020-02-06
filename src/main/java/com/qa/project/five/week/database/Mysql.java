@@ -1,9 +1,11 @@
-package com.qa.project.five.week;
+package com.qa.project.five.week.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.lang.AutoCloseable;
 
 import javax.management.Query;
 
@@ -51,46 +53,56 @@ public class Mysql {
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * @param sql
+	 * @return
+	 */
 	public ResultSet read(String sql) {
 		
 		try {
 			rs = stmt.executeQuery(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rs;
 	}
 
+	/**
+	 * @param sql
+	 */
 	public void update(String sql) {
 		
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	/**
+	 * @param sql
+	 */
 	public void delete(String sql) {
 		
 		try {
 			stmt.executeUpdate(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
-	public String resultSet_toString(ResultSet rs) {
-		String Result = "";
+	/**
+	 * @param rs
+	 * @return
+	 */
+	public ArrayList<String> resultSetToArrayList(ResultSet rs) {
+		ArrayList<String> results = new ArrayList<String>();
 		try {
 
 			while (rs.next()) {
@@ -98,14 +110,17 @@ public class Mysql {
 				for (int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
 					row += rs.getMetaData().getColumnLabel(i) + " , " + rs.getString(i) + " ";
 				}
-				Result += row + "\n";
+				results.add(row) ;
 			}
 		} catch (SQLException e) {
-			Result = "null";
+			results.add("\nerror\n");
 		}
-		return Result;
+		return results;
 	}
 
+	/**
+	 * 
+	 */
 	public void close() {
 		try {
 

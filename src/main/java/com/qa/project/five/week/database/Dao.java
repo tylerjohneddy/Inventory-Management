@@ -1,7 +1,12 @@
-package com.qa.project.five.week;
+package com.qa.project.five.week.database;
 
 import java.util.ArrayList;
 
+/**
+ * @author Admin
+ *
+ * @param <T>
+ */
 public interface Dao<T> {
 
 	// C
@@ -10,7 +15,7 @@ public interface Dao<T> {
 
 	// R
 
-	public ArrayList<T> readAll();
+	public ArrayList<String> readAll();
 	// U
 
 	public void update(T t);

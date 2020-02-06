@@ -1,14 +1,15 @@
-package com.qa.project.five.week;
+package com.qa.project.five.week.tables;
 
 public class Customer {
 	private int id;
 	private String firstName;
+	private String surname;
 
-	public Customer(int id, String firstName) {
+	public Customer(int id, String firstName, String surname) {
 		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.firstName = firstName;
-
+		this.surname = surname;
 	}
 
 	public int getId() {
@@ -25,6 +26,14 @@ public class Customer {
 
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 
 }

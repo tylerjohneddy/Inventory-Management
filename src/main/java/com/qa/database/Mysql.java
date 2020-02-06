@@ -129,6 +129,7 @@ public class Mysql {
 				stmt.close();
 
 		} catch (SQLException se2) {
+			se2.printStackTrace();
 		} // nothing we can do
 		try {
 

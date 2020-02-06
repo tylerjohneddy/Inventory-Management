@@ -19,18 +19,13 @@ public class MysqlCustomerDao implements Dao<Customer>{
 
 	
 	public List<String> readAll() {
-		//ArrayList<String> customers = new ArrayList<String>();
+		
 		Mysql mysql = new Mysql();
 		String sql = "SELECT * FROM customers;";
 		
 		ResultSet resultSet =  mysql.read(sql);
-		//customers = mysql.resultSetToArrayList(resultSet);
 		return mysql.resultSetToArrayList(resultSet);
-				
-		
 
-
-		//return customers;
 	}
 
 

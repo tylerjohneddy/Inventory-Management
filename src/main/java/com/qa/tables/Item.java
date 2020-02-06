@@ -5,6 +5,12 @@ public class Item {
 	private String name;
 	private double value;
 	private int inStock;
+	public Item(int id, String name, double value, int inStock) {
+		this.id = id;
+		this.name = name;
+		this.value = value;
+		this.inStock = inStock;
+	}
 	
 
 	public int getId() {

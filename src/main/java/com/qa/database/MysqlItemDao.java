@@ -1,6 +1,7 @@
 package com.qa.database;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.qa.tables.Item;
 
@@ -14,7 +15,7 @@ public class MysqlItemDao implements Dao<Item> {
 	}
 
 	@Override
-	public ArrayList<String> readAll() {
+	public List<String> readAll() {
 		String sql = "SELECT * FROM items;";
 		new Mysql().read(sql);
 		

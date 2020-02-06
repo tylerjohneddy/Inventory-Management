@@ -2,6 +2,7 @@ package com.qa.database;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.qa.tables.Order;
 
@@ -16,8 +17,8 @@ public class MysqlOrderDao implements Dao<Order> {
 	}
 
 	@Override
-	public ArrayList<String> readAll() {
-		ArrayList<String> resultArray = new ArrayList<String>();
+	public List<String> readAll() {
+		List<String> resultArray = new ArrayList<String>();
 		String sql = "SELECT * FROM orders;";
 		ResultSet resultSet = new Mysql().read(sql);
 		Mysql mysql = new Mysql();

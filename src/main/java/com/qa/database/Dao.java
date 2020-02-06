@@ -1,6 +1,7 @@
 package com.qa.database;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Admin
@@ -15,7 +16,7 @@ public interface Dao<T> {
 
 	// R
 
-	public ArrayList<String> readAll();
+	public List<String> readAll();
 	// U
 
 	public void update(T t);

@@ -6,10 +6,12 @@ public class Customer {
 	private String surname;
 
 	public Customer(int id, String firstName, String surname) {
-		// TODO Auto-generated constructor stub
 		this.id = id;
 		this.firstName = firstName;
 		this.surname = surname;
+	}
+
+	public Customer() {
 	}
 
 	public int getId() {

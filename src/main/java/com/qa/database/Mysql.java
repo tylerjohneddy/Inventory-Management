@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.qa.ims.Runner;
 
@@ -100,8 +101,9 @@ public class Mysql {
 	 * @param rs
 	 * @return
 	 */
-	public ArrayList<String> resultSetToArrayList(ResultSet rs) {
-		ArrayList<String> results = new ArrayList<String>();
+	public List<String> resultSetToArrayList(ResultSet rs) {
+		List<String> results = new ArrayList<String>();
+
 		try {
 
 			while (rs.next()) {

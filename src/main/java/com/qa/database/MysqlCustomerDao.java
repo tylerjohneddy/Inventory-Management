@@ -1,15 +1,8 @@
 package com.qa.database;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
-import com.mysql.cj.MysqlConnection;
 import com.qa.tables.Customer;
 
 public class MysqlCustomerDao implements Dao<Customer>{
@@ -25,7 +18,7 @@ public class MysqlCustomerDao implements Dao<Customer>{
 	}
 
 	
-	public ArrayList<String> readAll() {
+	public List<String> readAll() {
 		//ArrayList<String> customers = new ArrayList<String>();
 		Mysql mysql = new Mysql();
 		String sql = "SELECT * FROM customers;";

@@ -47,7 +47,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.qa.project.ims.Runner</mainClass>
+							<mainClass>com.qa.ims.Runner</mainClass>
 						</manifest>
 					</archive>
 				</configuration>

@@ -1,4 +1,4 @@
-package com.qa.project.five.week.database;
+package com.qa.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.mysql.cj.MysqlConnection;
-import com.qa.project.five.week.tables.Customer;
+import com.qa.tables.Customer;
 
 public class MysqlCustomerDao implements Dao<Customer>{
 

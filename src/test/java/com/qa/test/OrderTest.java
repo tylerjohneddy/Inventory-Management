@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.apache.log4j.PatternLayout;
 import org.junit.Test;
 
-import com.qa.project.five.week.tables.Order;
+import com.qa.tables.Order;
 
 public class OrderTest {
 	private static final Order order = new Order(3, 9.99, 1, 10);

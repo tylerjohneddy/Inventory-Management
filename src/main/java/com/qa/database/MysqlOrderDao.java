@@ -1,9 +1,9 @@
-package com.qa.project.five.week.database;
+package com.qa.database;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-import com.qa.project.five.week.tables.Order;
+import com.qa.tables.Order;
 
 public class MysqlOrderDao implements Dao<Order> {
 

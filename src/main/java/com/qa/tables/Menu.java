@@ -1,4 +1,4 @@
-package com.qa.project.five.week.tables;
+package com.qa.tables;
 
 import java.util.Scanner;
 

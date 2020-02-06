@@ -1,4 +1,4 @@
-package com.qa.project.five.week.database;
+package com.qa.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

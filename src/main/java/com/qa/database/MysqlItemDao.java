@@ -1,8 +1,8 @@
-package com.qa.project.five.week.database;
+package com.qa.database;
 
 import java.util.ArrayList;
 
-import com.qa.project.five.week.tables.Item;
+import com.qa.tables.Item;
 
 public class MysqlItemDao implements Dao<Item> {
 

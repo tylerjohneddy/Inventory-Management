@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.qa.project.five.week.tables.Customer;
+import com.qa.tables.Customer;
 
 public class CustomerTest {
 	private static final Customer customer = new Customer(6, "old", "older");

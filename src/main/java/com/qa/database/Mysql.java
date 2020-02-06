@@ -102,7 +102,7 @@ public class Mysql {
 	 * @return
 	 */
 	public List<String> resultSetToArrayList(ResultSet rs) {
-		List<String> results = new ArrayList<String>();
+		List<String> results = new ArrayList<>();
 
 		try {
 

@@ -2,10 +2,6 @@ package com.qa.tables;
 
 import java.util.Scanner;
 
-import com.qa.database.Dao;
-import com.qa.database.MysqlCustomerDao;
-import com.qa.database.MysqlItemDao;
-import com.qa.database.MysqlOrderDao;
 import com.qa.ims.Runner;
 
 public class Menu {

@@ -5,6 +5,18 @@
 	<groupId>com.qa.ims</groupId>
 	<artifactId>tyler-ims</artifactId>
 	<version>0.0.0-SNAPSHOT</version>
+		<distributionManagement>
+		<repository>
+			<id>nexus</id>
+			<name>Releases</name>
+			<url>http://35.189.123.196/nexus/repository/maven-releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus</id>
+			<name>Snapshots</name>
+			<url>http://35.189.123.196/nexus/repository/maven-snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>

@@ -18,7 +18,7 @@ public class Menu {
 
 		do {
 			Runner.LOGGER.info("Welcome to the inventroy managagment system");
-			Runner.LOGGER.info("Main Menu\nWhich domain would you like to interact with?");
+			Runner.LOGGER.info(String.format("Main Menu%nWhich domain would you like to interact with?"));
 
 			option = consoleLine.nextLine();
 
@@ -33,7 +33,7 @@ public class Menu {
 		switch (userInput) {
 		case "exit":
 
-			Runner.LOGGER.info("Good Bye Have A Nice Day!\n");
+			Runner.LOGGER.info(String.format("Good Bye Have A Nice Day!%n"));
 			break;
 
 		case "c":
@@ -54,11 +54,11 @@ public class Menu {
 
 		case "h":
 		case "help":
-			Runner.LOGGER.info("Options avalible:\n\n(c)ustomer menu\n(i)tem menu\n(o)der menu");
+			Runner.LOGGER.info(String.format("Options avalible:%n%n(c)ustomer menu%n(i)tem menu%n(o)der menu"));
 			break;
 
 		default:
-			Runner.LOGGER.info("Sorry please select a valid option!\n");
+			Runner.LOGGER.info(String.format("Sorry please select a valid option!%n"));
 			break;
 		}
 	}
@@ -66,7 +66,7 @@ public class Menu {
 	public void subMenuStarter(String topMenuOption) {
 		String subOption = "";
 		Runner.LOGGER
-				.info(String.format("You've entered the %s menu\nPlease select your next option\n", topMenuOption));
+				.info(String.format("You've entered the %s menu\nPlease select your next option%n", topMenuOption));
 		do {
 			subOption = consoleLine.nextLine();
 
@@ -76,7 +76,7 @@ public class Menu {
 
 public void subMenuOption(String crudOption, String topMenuOption) {
 	
-	Runner.LOGGER.info(String.format("Please enter the %s name:\n",topMenuOption));
+	Runner.LOGGER.info(String.format("Please enter the %s name:%n",topMenuOption));
 	
 	String userInput = consoleLine.nextLine();
 
@@ -110,8 +110,7 @@ public void SubMenu(String a, String topMenuOption) {
 		break;
 	case "h":
 	case "help":
-		Runner.LOGGER.info(String.format("Options avalible\n\n(h)elp: displays this message\n(a)dd new " + topMenuOption
-				+ "\n(d)elete excisting" + topMenuOption + "\n(v)iew all " + topMenuOption + "'s'"));
+		Runner.LOGGER.info(String.format("Options avalible%n%n(h)elp: displays this message%n(a)dd new %s%n(d)elete excisting %s%n(v)iew all %s's",topMenuOption,topMenuOption,topMenuOption));
 		break;
 	default:
 		Runner.LOGGER.info(String.format("Sorry please select a valid option!\n"));
